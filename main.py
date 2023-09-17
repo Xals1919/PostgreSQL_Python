@@ -76,7 +76,7 @@ def find(cur, first_name=None, second_name=None, mail=None, phone=None):
     return cur.fetchall()
 
 conn = psycopg2.connect(database='netologydb', user='postgres', password='postgres')
-with psycopg2.connect(database='netologydb', user='postgres', password='postgres').cursor() as cur:
+with conn.cursor() as cur:
     drop = drop_table(cur)
     new_table = create_table_client(cur)
     print(add_new_client(cur, 'Harry', 'Potter', 'grifindor@gmail.com'))
